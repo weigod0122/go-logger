@@ -329,7 +329,7 @@ func (fw *FileWriter) sliceByDate(dataSlice string) error {
 		oldFilename = strings.Replace(filename, filenameSuffix, "", 1) + "_" + startTime.Format("20060102") + filenameSuffix
 	}
 	if (dataSlice == FILE_SLICE_DATE_HOUR) &&
-		(startTime.Format("2006010215") != startTime.Format("2006010215")) {
+		(startTime.Format("2006010215") != nowTime.Format("2006010215")) {
 		isHaveSlice = true
 		oldFilename = strings.Replace(filename, filenameSuffix, "", 1) + "_" + startTime.Format("2006010215") + filenameSuffix
 	}
