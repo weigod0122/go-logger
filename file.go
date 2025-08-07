@@ -2,7 +2,7 @@ package go_logger
 
 import (
 	"errors"
-	"github.com/phachon/go-logger/utils"
+	"github.com/weigod0122/go-logger/utils"
 	"os"
 	"path"
 	"reflect"
@@ -303,7 +303,7 @@ func (fw *FileWriter) writeByConfig(config *FileConfig, loggerMsg *loggerMessage
 	return nil
 }
 
-//slice file by date (y, m, d, h, i, s), rename file is file_time.log and recreate file
+// slice file by date (y, m, d, h, i, s), rename file is file_time.log and recreate file
 func (fw *FileWriter) sliceByDate(dataSlice string) error {
 
 	filename := fw.filename
@@ -350,7 +350,7 @@ func (fw *FileWriter) sliceByDate(dataSlice string) error {
 	return nil
 }
 
-//slice file by line, if maxLine < fileLine, rename file is file_line_maxLine_time.log and recreate file
+// slice file by line, if maxLine < fileLine, rename file is file_line_maxLine_time.log and recreate file
 func (fw *FileWriter) sliceByFileLines(maxLine int64) error {
 
 	filename := fw.filename
@@ -375,7 +375,7 @@ func (fw *FileWriter) sliceByFileLines(maxLine int64) error {
 	return nil
 }
 
-//slice file by size, if maxSize < fileSize, rename file is file_size_maxSize_time.log and recreate file
+// slice file by size, if maxSize < fileSize, rename file is file_size_maxSize_time.log and recreate file
 func (fw *FileWriter) sliceByFileSize(maxSize int64) error {
 
 	filename := fw.filename
@@ -400,17 +400,17 @@ func (fw *FileWriter) sliceByFileSize(maxSize int64) error {
 	return nil
 }
 
-//get file object
-//params : filename
-//return : *os.file, error
+// get file object
+// params : filename
+// return : *os.file, error
 func (fw *FileWriter) getFileObject(filename string) (file *os.File, err error) {
 	file, err = os.OpenFile(filename, os.O_RDWR|os.O_APPEND, 0766)
 	return file, err
 }
 
-//get file size
-//params : filename
-//return : fileSize(byte int64), error
+// get file size
+// params : filename
+// return : fileSize(byte int64), error
 func (fw *FileWriter) getFileSize(filename string) (fileSize int64, err error) {
 	fileInfo, err := os.Stat(filename)
 	if err != nil {
